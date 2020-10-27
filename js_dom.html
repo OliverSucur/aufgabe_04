@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe04</title>
+</head>
+<body>
+    <form id="rechner" name="rechner">
+        <label for="titel">Aufgabe 04</label><br>
+        <label for="schraube">Wieviele Schrauben?:</label>
+        <input type="number" id="ischrauben" name="ischrauben"><br>
+        <label for="mutter">Wieviele M&uuml;tter?:</label>
+        <input type="number" id="imuetter" name="imuetter"><br>
+        <label for="unterlegsscheibe">Wieviele Unterlegsscheiben?:</label>
+        <input type="number" id="iunterlegsscheiben" name="iunterlegsscheiben"><br>
+    </form>
+    <button type="submit" form="rechner" id="brechnen" value="Submit">Ausrechnen</button>
+    <button type="reset" form="rechner" value="Reset">Formular löschen</button><br>
+    <label for="price">Summe in Franken: </label>
+    <input id="isumme" disabled>
+    <script>
+        document.getElementById("rechner").addEventListener("submit", function(event){
+            event.preventDefault();
+
+            var schraube = document.getElementById("ischrauben").value;
+            
+            var mutter = document.getElementById("imuetter").value;
+            
+            var unterlegsscheibe = document.getElementById("iunterlegsscheiben").value;
+
+            var summe;
+            summe = (schraube * 20 + mutter * 10 + unterlegsscheibe * 5) * 0.01;
+            
+            document.getElementById("isumme").value = summe.toFixed(2);
+        });
+    </script>
+</body>
+</html>
